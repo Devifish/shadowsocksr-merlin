@@ -26,12 +26,6 @@ install() {
     exit 1
   fi
 
-  if [[ -d "$SS_MERLIN_HOME" ]]; then
-    echo -e "$ansi_yellow You already have shadowsocks-asuswrt-merlin installed. $ansi_std"
-    echo -e "$ansi_yellow You'll need to delete $SS_MERLIN_HOME if you want to re-install. $ansi_std"
-    exit 1
-  fi
-
   echo -e "$ansi_green Installing required packages... $ansi_std"
   opkg update
   opkg upgrade
