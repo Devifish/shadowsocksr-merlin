@@ -1,0 +1,12 @@
+{
+  "server": "163.177.33.242",
+  "server_port": 1001,
+  "local_address": "0.0.0.0",
+  "local_port": 1080,
+  "password": "V2efLnR3SJZr",
+  "method": "chacha20-ietf",
+  "protocol": "auth_aes128_sha1",
+  "protocol_param": "68064:17072659",
+  "obfs": "plain",
+  "bfs_param": "306b968064.zhaoj.in"
+}

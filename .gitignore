@@ -1,7 +1,2 @@
 .idea
-etc/dnsmasq.d/
-!etc/dnsmasq.d/through_unbound.conf
 etc/shadowsocks/config.json
-etc/ss-merlin.conf
-!rules/localips
-tools/do_upgrade.sh
