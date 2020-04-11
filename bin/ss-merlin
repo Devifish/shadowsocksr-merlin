@@ -35,6 +35,8 @@ stop_proxy() {
   ${SS_MERLIN_HOME}/scripts/stop_all_services.sh
 
   echo -e "$ansi_green Cleaning dnsmasq configuration file... $ansi_std"
+
+  sed -i "\#conf-dir=${SS_MERLIN_HOME}/etc/dnsmasq.d/,\*\.conf#d" /jffs/configs/dnsmasq.conf.add 2>/dev/null
   service restart_dnsmasq
 
   rm -f /tmp/ss-merlin-is-run 2>/dev/null
@@ -102,6 +104,10 @@ start_proxy() {
   echo "Starting all services..."
   ${SS_MERLIN_HOME}/scripts/start_all_services.sh
 
+  echo "Updating dnsmasq configuration file..."
+  if ! grep -qs "^conf-dir=${SS_MERLIN_HOME}/etc/dnsmasq.d/,\*\.conf$" /jffs/configs/dnsmasq.conf.add; then
+    echo "conf-dir=${SS_MERLIN_HOME}/etc/dnsmasq.d/,*.conf" >>/jffs/configs/dnsmasq.conf.add
+  fi
   service restart_dnsmasq
 
   echo "Creating cron jobs..."

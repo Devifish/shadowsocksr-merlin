@@ -5,7 +5,7 @@ SHADOW_CONFIG_FILE=${SS_MERLIN_HOME}/etc/shadowsocks/config.json
 
 # Start if process not running
 ss_pid=$(pidof ssr-redir)
-if [[ -z "$ssr_pid" ]]; then
+if [[ -z "$ss_pid" ]]; then
   ssr-redir -c ${SHADOW_CONFIG_FILE} -f /opt/var/run/ssr-redir.pid
 fi
 
